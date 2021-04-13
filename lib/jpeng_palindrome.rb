@@ -2,7 +2,22 @@
 
 require_relative "jpeng_palindrome/version"
 
-module JpengPalindrome
-  class Error < StandardError; end
-  # Your code goes here...
+class String
+
+  # Returns true for a palindrome, false otherwise.
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
+    #Returns only letters for a string with punctuation ie, "Madam, I'm Adam" => "MadamImAdam"
+
+  def letters
+    self.split("").select{|letter| letter.match(/[a-zA-Z]/)}.join
+    #self.scan(/[a-zA-Z]/).join
+  end
+
+  private
+    # Returns content for palindrome testing.
+    def processed_content
+      self.letters.downcase
+    end
 end
