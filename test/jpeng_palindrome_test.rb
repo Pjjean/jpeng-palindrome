@@ -23,4 +23,8 @@ class JpengPalindromeTest < Minitest::Test
   def test_punctuated_palindrome
     assert "Madam, I'm Adam.".palindrome?
   end
+
+  def test_integer_palindrome
+    assert 12321.palindrome?
+  end
 end

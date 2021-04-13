@@ -2,7 +2,7 @@
 
 require_relative "jpeng_palindrome/version"
 
-class String
+module JpengPalindrome
 
   # Returns true for a palindrome, false otherwise.
   def palindrome?
@@ -18,6 +18,14 @@ class String
   private
     # Returns content for palindrome testing.
     def processed_content
-      self.letters.downcase
+      self.to_s.letters.downcase
     end
+end
+
+class String
+  include JpengPalindrome
+end
+
+class Integer
+  include JpengPalindrome
 end
